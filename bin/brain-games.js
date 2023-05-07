@@ -1,3 +1,4 @@
 #!/usr/bin/env node
+import questionOfName from '../src/cli.js'
 
-console.log('Welcome to the Brain Games!');
+questionOfName();
