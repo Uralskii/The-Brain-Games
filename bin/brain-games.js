@@ -2,3 +2,5 @@
 import questionOfName from '../src/cli.js';
 
 questionOfName();
+
+export default questionOfName;
