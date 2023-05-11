@@ -5,6 +5,7 @@ const gameForPlayer = () => {
   console.log(`Hello, ${userName}!`);
 
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
+
   let i = 0;
   while (i < 3) {
     const generateNumber = Math.floor(Math.random(30) * 30);
