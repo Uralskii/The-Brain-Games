@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import welcomeMessage from '../src/index.js';
+import welcome from '../src/index.js';
 import gameForPlayer from '../games/even.js';
 
-welcomeMessage();
+welcome();
 gameForPlayer();
