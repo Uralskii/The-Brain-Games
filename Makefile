@@ -18,3 +18,6 @@ make lint:
 
 brain-games:
 	node bin/brain-games.js
+
+brain-prime:
+	node bin/brain-prime.js
