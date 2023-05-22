@@ -12,6 +12,7 @@ const gameForPlayer = () => {
     const createArray = [];
     const arrayLength = 10;
 
+    const randomHiddenElem = Math.ceil(Math.random(9) * 9);
     const startNumber = Math.ceil(Math.random(10) * 10);
     const stepProgression = Math.ceil(Math.random(5) * 5);
 
@@ -20,7 +21,7 @@ const gameForPlayer = () => {
     for (let i = 1; i < arrayLength; i += 1) {
       createArray[i] = createArray[i - 1] + stepProgression;
     }
-    const checkNumber = createArray.splice(startNumber, 1, hiddenElement);
+    const checkNumber = createArray.splice(randomHiddenElem, 1, hiddenElement);
     const answerOfProgression = Number(checkNumber);
     const arrToStr = createArray.join(' ');
 
