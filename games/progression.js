@@ -30,6 +30,7 @@ const gameForPlayer = () => {
       console.log('Correct!');
     } else if (Number(generateAnswer) !== answerOfProgression) {
       console.log(`${generateAnswer} is wrong answer ;(. Correct answer was ${answerOfProgression}.`);
+      console.log(`Let's try again, ${userName}!`);
       break;
     }
 
