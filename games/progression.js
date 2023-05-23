@@ -1,9 +1,8 @@
 import readlineSync from 'readline-sync';
+import startGame from '../src/index.js';
 
-const gameForPlayer = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-
+const gameBrainProgression = () => {
+  const userName = startGame();
   console.log('What number is missing in the progression?');
 
   let b = 0;
@@ -42,4 +41,4 @@ const gameForPlayer = () => {
   }
 };
 
-export default gameForPlayer;
+export default gameBrainProgression;

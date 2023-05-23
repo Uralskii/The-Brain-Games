@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import startGame from '../src/index.js';
 
 const checkNumberIsPrime = (number) => {
   if (number < 2) {
@@ -18,10 +19,8 @@ const checkNumberIsPrime = (number) => {
   return 0;
 };
 
-const gameForPlayer = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-
+const gameBrainPrime = () => {
+  const userName = startGame();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   let i = 0;
@@ -57,4 +56,4 @@ const gameForPlayer = () => {
   }
 };
 
-export default gameForPlayer;
+export default gameBrainPrime;
