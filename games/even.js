@@ -1,23 +1,31 @@
 import readlineSync from 'readline-sync';
-import { startGame, getRandomValue } from '../src/index.js';
+import { getUserName, getRandomValue } from '../src/index.js';
 
 const gameBrainEven = () => {
-  const userName = startGame();
+  const userName = getUserName();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   let i = 0;
-  while (i < 3) {
-    const generateNumber = getRandomValue(30);
-    console.log(`Question: ${generateNumber}`);
+  const attemps = 3;
 
-    const generateAnswer = readlineSync.question('Your answer: ');
-    if ((generateAnswer === 'yes' && generateNumber % 2 === 0) || (generateAnswer === 'no' && generateNumber % 2 !== 0)) {
+  while (i < attemps) {
+    const generatedNumber = getRandomValue(30);
+    console.log(`Question: ${generatedNumber}`);
+
+    const generatedAnswer = readlineSync.question('Your answer: ');
+
+    const isEven = generatedNumber % 2 === 0;
+    const isPositiveAnswer = generatedAnswer === 'yes';
+    const isNegativeAnswer = generatedAnswer === 'no';
+    const isCorrectAnswer = (isPositiveAnswer && isEven) || (isNegativeAnswer && !isEven);
+
+    if (isCorrectAnswer) {
       console.log('Correct!');
-    } else if (generateAnswer === 'no' && generateNumber % 2 === 0) {
+    } else if (generatedAnswer === 'no' && generatedNumber % 2 === 0) {
       console.log("'no' is wrong answer ;(. Correct answer was 'yes'.");
       console.log(`Let's try again, ${userName}!`);
       break;
-    } else if (generateAnswer === 'yes' && generateNumber % 2 !== 0) {
+    } else if (generatedAnswer === 'yes' && generatedNumber % 2 !== 0) {
       console.log("'yes' is wrong answer ;(. Correct answer was 'no'.");
       console.log(`Let's try again, ${userName}!`);
       break;

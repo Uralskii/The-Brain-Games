@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { startGame, getRandomValue } from '../src/index.js';
+import { getUserName, getRandomValue } from '../src/index.js';
 
 const largestDevisor = (num1, num2) => {
   let devisor;
@@ -21,22 +21,24 @@ const largestDevisor = (num1, num2) => {
 };
 
 const gameBrainGcd = () => {
-  const userName = startGame();
+  const userName = getUserName();
   console.log('Find the greatest common divisor of given numbers.');
 
   let i = 0;
-  while (i < 3) {
+  const attemps = 3;
+
+  while (i < attemps) {
     const firstNumber = getRandomValue(20);
     const secondNumber = getRandomValue(20);
 
     console.log(`Question: ${firstNumber} ${secondNumber}`);
-    const generateAnswer = readlineSync.question('Your answer: ');
+    const generatedAnswer = readlineSync.question('Your answer: ');
 
     const answerOfDeviser = largestDevisor(firstNumber, secondNumber);
-    if (Number(generateAnswer) === answerOfDeviser) {
+    if (Number(generatedAnswer) === answerOfDeviser) {
       console.log('Correct!');
     } else {
-      console.log(`${generateAnswer} is wrong answer ;(. Correct answer was ${answerOfDeviser}.`);
+      console.log(`${generatedAnswer} is wrong answer ;(. Correct answer was ${answerOfDeviser}.`);
       console.log(`Let's try again, ${userName}!`);
       break;
     }

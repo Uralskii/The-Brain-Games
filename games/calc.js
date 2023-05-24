@@ -1,25 +1,31 @@
 import readlineSync from 'readline-sync';
-import { startGame, getRandomValue } from '../src/index.js';
+import { getUserName, getRandomValue } from '../src/index.js';
 
-const basicOperation = (operation, firstNumber, secondNumber) => {
+const getCalculatedResult = (operation, firstNumber, secondNumber) => {
   switch (operation) {
-    case '+':
+    case '+': {
       return firstNumber + secondNumber;
-    case '-':
+    }
+    case '-': {
       return firstNumber - secondNumber;
-    case '*':
+    }
+    case '*': {
       return firstNumber * secondNumber;
-    default:
+    }
+    default: {
       return 0;
+    }
   }
 };
 
 const gameBrainCalc = () => {
-  const userName = startGame();
+  const userName = getUserName();
   console.log('What is the result of the expression?');
 
   let i = 0;
-  while (i < 3) {
+  const attemps = 3;
+
+  while (i < attemps) {
     const firstNumber = getRandomValue(10);
     const secondNumber = getRandomValue(10);
 
@@ -28,13 +34,13 @@ const gameBrainCalc = () => {
     const randomOperator = operators[randomIndexOfOperators];
 
     console.log(`Question: ${firstNumber} ${randomOperator} ${secondNumber}`);
-    const generateAnswer = readlineSync.question('Your answer: ');
+    const generatedAnswer = readlineSync.question('Your answer: ');
 
-    const generateExpression = basicOperation(randomOperator, firstNumber, secondNumber);
-    if (Number(generateAnswer) === generateExpression) {
+    const generatedExpression = getCalculatedResult(randomOperator, firstNumber, secondNumber);
+    if (Number(generatedAnswer) === generatedExpression) {
       console.log('Correct!');
     } else {
-      console.log(`${generateAnswer} is wrong answer ;(. correct answer was ${generateExpression}`);
+      console.log(`${generatedAnswer} is wrong answer ;(. correct answer was ${generatedExpression}`);
       console.log(`Let's try again, ${userName}!`);
       break;
     }

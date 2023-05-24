@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { startGame, getRandomValue } from '../src/index.js';
+import { getUserName, getRandomValue } from '../src/index.js';
 
 const checkNumberIsPrime = (number) => {
   if (number < 2) {
@@ -16,32 +16,39 @@ const checkNumberIsPrime = (number) => {
     }
     return true;
   }
-  return 0;
+  return true;
 };
 
 const gameBrainPrime = () => {
-  const userName = startGame();
+  const userName = getUserName();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   let i = 0;
-  while (i < 3) {
-    const generateNumber = getRandomValue(20);
-    console.log(`Question: ${generateNumber}`);
-    const generateAnswer = readlineSync.question('Your answer: ');
+  const attemps = 3;
 
-    const answerOfPrimeNumber = checkNumberIsPrime(generateNumber);
+  while (i < attemps) {
+    const generatedNumber = getRandomValue(20);
+    console.log(`Question: ${generatedNumber}`);
+    const generatedAnswer = readlineSync.question('Your answer: ');
 
-    if ((generateAnswer === 'yes' && answerOfPrimeNumber === true) || (generateAnswer === 'no' && answerOfPrimeNumber === false)) {
+    const answerOfPrimeNumber = checkNumberIsPrime(generatedNumber);
+
+    const isPrime = checkNumberIsPrime(generatedNumber);
+    const isPositiveAnswer = generatedAnswer === 'yes';
+    const isNegativeAnswer = generatedAnswer === 'no';
+    const isCorrectAnswer = (isPositiveAnswer && isPrime) || (isNegativeAnswer && !isPrime);
+
+    if (isCorrectAnswer) {
       console.log('Correct!');
-    } else if (generateAnswer === 'yes' && answerOfPrimeNumber === false) {
+    } else if (generatedAnswer === 'yes' && answerOfPrimeNumber === false) {
       console.log("'yes' is wrong answer ;(. Correct answer was 'no'.");
       console.log(`Let's try again, ${userName}!`);
       break;
-    } else if (generateAnswer === 'no' && answerOfPrimeNumber === true) {
+    } else if (generatedAnswer === 'no' && answerOfPrimeNumber === true) {
       console.log("'no' is wrong answer ;(. Correct answer was 'yes'.");
       console.log(`Let's try again, ${userName}!`);
       break;
-    } else if (generateAnswer !== 'yes' || generateNumber !== 'no') {
+    } else if (generatedAnswer !== 'yes' || generatedNumber !== 'no') {
       console.log('Is wrong answer!');
       console.log(`Let's try again, ${userName}!`);
       break;

@@ -1,35 +1,37 @@
 import readlineSync from 'readline-sync';
-import { startGame, getRandomValue } from '../src/index.js';
+import { getUserName, getRandomValue } from '../src/index.js';
 
 const gameBrainProgression = () => {
-  const userName = startGame();
+  const userName = getUserName();
   console.log('What number is missing in the progression?');
 
   let b = 0;
-  while (b < 3) {
+  const attemps = 3;
+
+  while (b < attemps) {
     const hiddenElement = '..';
-    const createArray = [];
+    const createdArray = [];
     const arrayLength = 10;
 
     const randomHiddenElem = getRandomValue(9);
     const startNumber = getRandomValue(10);
     const stepProgression = getRandomValue(5);
 
-    createArray[0] = startNumber;
+    createdArray[0] = startNumber;
 
     for (let i = 1; i < arrayLength; i += 1) {
-      createArray[i] = createArray[i - 1] + stepProgression;
+      createdArray[i] = createdArray[i - 1] + stepProgression;
     }
-    const checkNumber = createArray.splice(randomHiddenElem, 1, hiddenElement);
+    const checkNumber = createdArray.splice(randomHiddenElem, 1, hiddenElement);
     const answerOfProgression = Number(checkNumber);
-    const arrToStr = createArray.join(' ');
+    const arrToStr = createdArray.join(' ');
 
     console.log(`Question: ${arrToStr}`);
-    const generateAnswer = readlineSync.question('Your answer: ');
-    if (Number(generateAnswer) === answerOfProgression) {
+    const generatedAnswer = readlineSync.question('Your answer: ');
+    if (Number(generatedAnswer) === answerOfProgression) {
       console.log('Correct!');
     } else {
-      console.log(`${generateAnswer} is wrong answer ;(. Correct answer was ${answerOfProgression}.`);
+      console.log(`${generatedAnswer} is wrong answer ;(. Correct answer was ${answerOfProgression}.`);
       console.log(`Let's try again, ${userName}!`);
       break;
     }
