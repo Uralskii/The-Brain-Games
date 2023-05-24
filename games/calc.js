@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import startGame from '../src/index.js';
+import { startGame, getRandomValue } from '../src/index.js';
 
 const basicOperation = (operation, firstNumber, secondNumber) => {
   switch (operation) {
@@ -20,8 +20,8 @@ const gameBrainCalc = () => {
 
   let i = 0;
   while (i < 3) {
-    const firstNumber = Math.ceil(Math.random(10) * 10);
-    const secondNumber = Math.ceil(Math.random(10) * 10);
+    const firstNumber = getRandomValue(10);
+    const secondNumber = getRandomValue(10);
 
     const operators = ['+', '-', '*'];
     const randomIndexOfOperators = Math.floor(Math.random() * (operators.length));

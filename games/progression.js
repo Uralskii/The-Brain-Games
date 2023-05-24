@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import startGame from '../src/index.js';
+import { startGame, getRandomValue } from '../src/index.js';
 
 const gameBrainProgression = () => {
   const userName = startGame();
@@ -11,9 +11,9 @@ const gameBrainProgression = () => {
     const createArray = [];
     const arrayLength = 10;
 
-    const randomHiddenElem = Math.ceil(Math.random(9) * 9);
-    const startNumber = Math.ceil(Math.random(10) * 10);
-    const stepProgression = Math.ceil(Math.random(5) * 5);
+    const randomHiddenElem = getRandomValue(9);
+    const startNumber = getRandomValue(10);
+    const stepProgression = getRandomValue(5);
 
     createArray[0] = startNumber;
 
@@ -28,7 +28,7 @@ const gameBrainProgression = () => {
     const generateAnswer = readlineSync.question('Your answer: ');
     if (Number(generateAnswer) === answerOfProgression) {
       console.log('Correct!');
-    } else if (Number(generateAnswer) !== answerOfProgression) {
+    } else {
       console.log(`${generateAnswer} is wrong answer ;(. Correct answer was ${answerOfProgression}.`);
       console.log(`Let's try again, ${userName}!`);
       break;

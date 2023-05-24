@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import startGame from '../src/index.js';
+import { startGame, getRandomValue } from '../src/index.js';
 
 const gameBrainEven = () => {
   const userName = startGame();
@@ -7,7 +7,7 @@ const gameBrainEven = () => {
 
   let i = 0;
   while (i < 3) {
-    const generateNumber = Math.floor(Math.random(30) * 30);
+    const generateNumber = getRandomValue(30);
     console.log(`Question: ${generateNumber}`);
 
     const generateAnswer = readlineSync.question('Your answer: ');

@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import startGame from '../src/index.js';
+import { startGame, getRandomValue } from '../src/index.js';
 
 const checkNumberIsPrime = (number) => {
   if (number < 2) {
@@ -25,15 +25,13 @@ const gameBrainPrime = () => {
 
   let i = 0;
   while (i < 3) {
-    const generateNumber = Math.ceil(Math.random(20) * 20);
+    const generateNumber = getRandomValue(20);
     console.log(`Question: ${generateNumber}`);
     const generateAnswer = readlineSync.question('Your answer: ');
 
     const answerOfPrimeNumber = checkNumberIsPrime(generateNumber);
 
-    if (generateAnswer === 'yes' && answerOfPrimeNumber === true) {
-      console.log('Correct!');
-    } else if (generateAnswer === 'no' && answerOfPrimeNumber === false) {
+    if ((generateAnswer === 'yes' && answerOfPrimeNumber === true) || (generateAnswer === 'no' && answerOfPrimeNumber === false)) {
       console.log('Correct!');
     } else if (generateAnswer === 'yes' && answerOfPrimeNumber === false) {
       console.log("'yes' is wrong answer ;(. Correct answer was 'no'.");

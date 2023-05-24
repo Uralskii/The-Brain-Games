@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import startGame from '../src/index.js';
+import { startGame, getRandomValue } from '../src/index.js';
 
 const largestDevisor = (num1, num2) => {
   let devisor;
@@ -26,14 +26,13 @@ const gameBrainGcd = () => {
 
   let i = 0;
   while (i < 3) {
-    const firstNumber = Math.ceil(Math.random(20) * 20);
-    const secondNumber = Math.ceil(Math.random(20) * 20);
+    const firstNumber = getRandomValue(20);
+    const secondNumber = getRandomValue(20);
 
     console.log(`Question: ${firstNumber} ${secondNumber}`);
     const generateAnswer = readlineSync.question('Your answer: ');
 
     const answerOfDeviser = largestDevisor(firstNumber, secondNumber);
-
     if (Number(generateAnswer) === answerOfDeviser) {
       console.log('Correct!');
     } else {
