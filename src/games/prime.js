@@ -1,25 +1,21 @@
 import makeGames from '../index.js';
 import getRandomInRange from '../getRandomInRange.js';
 
-const checkNumberIsPrime = (number) => {
-  if (number < 2) {
-    return false;
-  }
-
+const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
       return false;
     }
   }
-  return true;
+  return number !== 1;
 };
 
 const makePrimeGame = () => {
   const rulesOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
   const generateRound = () => {
-    const generatedNumber = getRandomInRange(0, 20).toString();
-    const expectedAnswer = checkNumberIsPrime(generatedNumber) ? 'yes' : 'no';
+    const generatedNumber = String(getRandomInRange(0, 20));
+    const expectedAnswer = isPrime(generatedNumber) ? 'yes' : 'no';
     return [generatedNumber, expectedAnswer];
   };
 

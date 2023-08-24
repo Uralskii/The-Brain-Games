@@ -1,6 +1,13 @@
 import makeGames from '../index.js';
 import getRandomInRange from '../getRandomInRange.js';
 
+const operators = ['+', '-', '*'];
+
+const getOperator = (operator) => {
+  const randomIndexOfOperators = Math.floor(Math.random() * (operators.length));
+  return operator[randomIndexOfOperators];
+};
+
 const getCalculatedResult = (operation, firstNumber, secondNumber) => {
   switch (operation) {
     case '+': {
@@ -21,21 +28,19 @@ const getCalculatedResult = (operation, firstNumber, secondNumber) => {
 const makeCalcGame = () => {
   const rulesOfGame = 'What is the result of the expression?';
 
-  const makeCalculator = () => {
+  const generateRound = () => {
     const firstNumber = getRandomInRange(1, 10);
     const secondNumber = getRandomInRange(1, 10);
 
-    const operators = ['+', '-', '*'];
-    const randomIndexOfOperators = Math.floor(Math.random() * (operators.length));
-    const randomOperator = operators[randomIndexOfOperators];
-    const generateExpression = `${firstNumber} ${randomOperator} ${secondNumber}`;
+    const randomOperator = getOperator(operators);
 
-    const expectedAnswer = getCalculatedResult(randomOperator, firstNumber, secondNumber);
-    const convertedAnswer = expectedAnswer.toString();
-    return [generateExpression, convertedAnswer];
+    const generateExpression = `${firstNumber} ${randomOperator} ${secondNumber}`;
+    const expectedAnswer = String(getCalculatedResult(randomOperator, firstNumber, secondNumber));
+
+    return [generateExpression, expectedAnswer];
   };
 
-  makeGames(rulesOfGame, makeCalculator);
+  makeGames(rulesOfGame, generateRound);
 };
 
 export default makeCalcGame;
