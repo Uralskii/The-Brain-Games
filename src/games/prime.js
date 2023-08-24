@@ -14,7 +14,7 @@ const makePrimeGame = () => {
   const rulesOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
   const generateRound = () => {
-    const generatedNumber = String(getRandomInRange(0, 20));
+    const generatedNumber = getRandomInRange(0, 20);
     const expectedAnswer = isPrime(generatedNumber) ? 'yes' : 'no';
     return [generatedNumber, expectedAnswer];
   };
