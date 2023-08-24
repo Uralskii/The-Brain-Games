@@ -8,10 +8,10 @@ The Brain Games - a set of console games for logic. Each game is launched from t
 **Set of games:**
 
 * **:zap: Even:** Output format in which each key has its own state.
-* **:scroll: Calculator:** Text output format. Each line describes a key change.
+* **:iphone: Calculator:** Text output format. Each line describes a key change.
 * **:zap: Prime:** Output format in which each key has its own state.
-* **:zap: Gcd:** Output format in which each key has its own state.
-* **:zap: Progression:** Output format in which each key has its own state.
+* **:wrench: Gcd:** Output format in which each key has its own state.
+* **:computer: Progression:** Output format in which each key has its own state.
 
 ## Requirements
 
@@ -40,15 +40,15 @@ $ make lint
 
 <a href="https://asciinema.org/a/E6u32NWyuglhgLttXTiOe8Xi4" target="_blank"><img src="https://asciinema.org/a/E6u32NWyuglhgLttXTiOe8Xi4.svg" /></a>
 
-**Game Calculator** :zap:
+**Game Calculator** :iphone:
 
 <a href="https://asciinema.org/a/CcLlxRLBgzGFLbC6q20MZEcjd" target="_blank"><img src="https://asciinema.org/a/CcLlxRLBgzGFLbC6q20MZEcjd.svg" /></a>
 
-**Game Gcd** :zap:
+**Game Gcd** :wrench:
 
 <a href="https://asciinema.org/a/wY0CHpy7ffqLYyPlX1N17ioPq" target="_blank"><img src="https://asciinema.org/a/wY0CHpy7ffqLYyPlX1N17ioPq.svg" /></a>
 
-**Game Progression** :zap:
+**Game Progression** :computer:
 
 <a href="https://asciinema.org/a/IEVwytLhjylrb4dg0Nctjv0No" target="_blank"><img src="https://asciinema.org/a/IEVwytLhjylrb4dg0Nctjv0No.svg" /></a>
 
