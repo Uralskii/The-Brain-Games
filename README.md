@@ -29,7 +29,7 @@ The Brain Games - a set of console games for logic. Each game is launched from t
 The utility has a basic set of commands for installation.
 
 ```bash
-$ git clone git@github.com:Uralskii/Difference-Calculator.git
+$ git clone git@github.com:Uralskii/The-Brain-Games.git
 $ make install
 $ npm link
 ```
