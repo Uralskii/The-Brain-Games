@@ -7,11 +7,17 @@ The Brain Games - a set of console games for logic. Each game is launched from t
 
 **Set of games:**
 
-* **:zap: Even:** Output format in which each key has its own state.
-* **:iphone: Calculator:** Text output format. Each line describes a key change.
-* **:zap: Prime:** Output format in which each key has its own state.
-* **:wrench: Gcd:** Output format in which each key has its own state.
-* **:computer: Progression:** Output format in which each key has its own state.
+* **:zap: Even:** Need to answer if the number is even.
+* **:iphone: Calculator:** You need to solve a mathematical expression.
+* **:wrench: Gcd:** Find the greatest common divisor.
+* **:computer: Progression:** Need to find the missing number in a mathematical progression
+* **:basketball: Prime:** Need to answer if the number is prime.
+
+**Rules of games:**
+
+* You have three rounds.
+* If the answer is correct, a new question will be asked.
+* In case of an incorrect answer, the game stops.
 
 ## Requirements
 
@@ -34,6 +40,25 @@ $ npm link
 $ make lint
 ```
 
+## List Commands In Terminal
+
+```bash
+# Start Game Even
+$ brain-even
+
+# Start Game Calculator
+$ brain-calculator
+
+# Start Game Gcd
+$ brain-gcd
+
+# Start Game Progression
+$ brain-progression
+
+# Start Game Prime
+$ brain-prime
+```
+
 ## Examples
 
 **Game Even** :zap:
@@ -52,6 +77,6 @@ $ make lint
 
 <a href="https://asciinema.org/a/IEVwytLhjylrb4dg0Nctjv0No" target="_blank"><img src="https://asciinema.org/a/IEVwytLhjylrb4dg0Nctjv0No.svg" /></a>
 
-**Game Prime** :zap:
+**Game Prime** :basketball:
 
 <a href="https://asciinema.org/a/sErYsvjckqoSLmE65zJC7azcp" target="_blank"><img src="https://asciinema.org/a/sErYsvjckqoSLmE65zJC7azcp.svg" /></a>
