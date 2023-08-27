@@ -10,10 +10,10 @@ const makeGameGcd = () => {
     const firstNumber = getRandomInRange(0, 20);
     const secondNumber = getRandomInRange(0, 20);
 
-    const generatedNumbers = `${firstNumber} ${secondNumber}`;
-    const expectedAnswer = String(getLargeDevisor(firstNumber, secondNumber));
+    const question = `${firstNumber} ${secondNumber}`;
+    const answer = String(getLargeDevisor(firstNumber, secondNumber));
 
-    return [generatedNumbers, expectedAnswer];
+    return [question, answer];
   };
 
   makeGames(rulesOfGame, generateRound);

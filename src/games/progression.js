@@ -24,8 +24,8 @@ const gameBrainProgression = () => {
     const startNum = getRandomInRange(0, 50);
     const step = getRandomInRange(0, 5);
 
-    const [progressionForUser, expectedAnswer] = getProgression(step, randomHiddenElem, startNum);
-    return [progressionForUser, expectedAnswer];
+    const [question, answer] = getProgression(step, randomHiddenElem, startNum);
+    return [question, answer];
   };
 
   makeGames(rulesOfGames, generatedRound);

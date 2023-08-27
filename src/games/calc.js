@@ -20,7 +20,7 @@ const getCalculatedResult = (operation, firstNumber, secondNumber) => {
       return firstNumber * secondNumber;
     }
     default: {
-      return 0;
+      throw new Error(`Invalid operation - ${operation}`);
     }
   }
 };
@@ -34,10 +34,10 @@ const makeCalcGame = () => {
 
     const randomOperator = getOperator(operators);
 
-    const generateExpression = `${firstNumber} ${randomOperator} ${secondNumber}`;
-    const expectedAnswer = String(getCalculatedResult(randomOperator, firstNumber, secondNumber));
+    const question = `${firstNumber} ${randomOperator} ${secondNumber}`;
+    const answer = String(getCalculatedResult(randomOperator, firstNumber, secondNumber));
 
-    return [generateExpression, expectedAnswer];
+    return [question, answer];
   };
 
   makeGames(rulesOfGame, generateRound);

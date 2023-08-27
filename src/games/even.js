@@ -7,9 +7,9 @@ const makeEvenGame = () => {
   const rulesOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
 
   const generateRound = () => {
-    const generatedNumber = String(getRandomInRange());
-    const expectedAnswer = isEven(generatedNumber) ? 'yes' : 'no';
-    return [generatedNumber, expectedAnswer];
+    const question = String(getRandomInRange());
+    const answer = isEven(question) ? 'yes' : 'no';
+    return [question, answer];
   };
 
   makeGames(rulesOfGame, generateRound);
